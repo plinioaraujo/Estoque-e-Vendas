@@ -111,7 +111,7 @@ TELA DE MODAL DE CADASTRO DE PRODUTO
                          <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-check"></i></span>
-                                <input id="estoque" type="number" class="form-control input-lg" name="novoEstoque" min="0" placeholder="Estoque" required>
+                                <input id="estoque" type="number" class="form-control input-lg" name="novoEstoque" min="0" max="99999" placeholder="Estoque" required>
                             </div>
                         </div>
 
@@ -186,7 +186,7 @@ TELA DE MODAL DE CADASTRO DE PRODUTO
 
                             <p class="hel-block text-warning">Tamanho máximo da foto: 2Mb</p>
 
-                            <img src="view/img/produtos/default/anonYmous.png" width="100px;" class="img-thumbnail">
+                            <img src="view/img/produtos/default/anonYmous.png" width="100px;" class="img-thumbnail visualizar">
                         </div>
                     </div>
                 </div>

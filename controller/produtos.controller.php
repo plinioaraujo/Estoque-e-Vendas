@@ -24,7 +24,7 @@ class ControllerProdutos{
 
 		if(isset($_POST["novaDescricao"])){
 
-			if(preg_match('/^[a-zA-Z0-9áéíóúÁÉÍÓÚ ]+$/', $_POST["novaDescricao"]) &&
+			if(preg_match('/^[a-zA-Z0-9çãõáéíóúÇÃÕÁÉÍÓÚ ]+$/', $_POST["novaDescricao"]) &&
 			   preg_match('/^[0-9]+$/', $_POST["novoEstoque"]) &&	
 			   preg_match('/^[0-9.]+$/', $_POST["novoPrecoCompra"]) &&
 			   preg_match('/^[0-9.]+$/', $_POST["novoPrecoVenda"])){
@@ -166,7 +166,7 @@ class ControllerProdutos{
 
 		if(isset($_POST["editarDescricao"])){
 
-			if(preg_match('/^[a-zA-Z0-9áéíóúÁÉÍÓÚ ]+$/', $_POST["editarDescricao"]) &&
+			if(preg_match('/^[a-zA-Z0-9çãõáéíóúÇÃÕÁÉÍÓÚ ]+$/', $_POST["editarDescricao"]) &&
 			preg_match('/^[0-9]+$/', $_POST["editarEstoque"]) &&	
 			preg_match('/^[0-9.]+$/', $_POST["editarPrecoCompra"]) &&
 			preg_match('/^[0-9.]+$/', $_POST["editarPrecoVenda"])){
