@@ -74,15 +74,19 @@
     <script src="view/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script src="view/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
     <script src="view/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
-    <!-- MÁSCARA DE MOEDA -->
-    <script src="view/bower_components/maskmoney/jquery.maskMoney.min.js"></script>
-    <!-- SweetAlert 2 -->
+      <!-- SweetAlert 2 -->
     <script src="view/plugins/sweetalert2/sweetalert2.all.js"></script>
     <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
       <!-- iCheck 1.0.1 -->
     <script src="view/plugins/iCheck/icheck.min.js"></script>
+
+        
+    <!-- InputMask -->
+    <script src="view/plugins/input-mask/jquery.inputmask.js"></script>
+    <script src="view/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+    <script src="view/plugins/input-mask/jquery.inputmask.extensions.js"></script>
 
 
 </head>
@@ -145,7 +149,7 @@ if(
     <script src="view/js/template.js"></script>
     <script src="view/js/usuarios.js"></script>
     <script src="view/js/categorias.js"></script>
-      <script src="view/js/produtos.js"></script>
+    <script src="view/js/produtos.js"></script>
 
 </body>
 

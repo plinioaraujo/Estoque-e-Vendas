@@ -121,9 +121,9 @@
 </div>
 
 <!--======================================
-TELA DE MODAL DE CADASTRO DE Categoria
+TELA DE MODAL DE CADASTRO DE Clientes
 ======================================-->
-<div id="modalCadastroCategoria" class="modal fade" data-backdrop="static" role="dialog">
+<div id="modalCadastroCliente" class="modal fade" data-backdrop="static" role="dialog">
     <div class="modal-dialog">
 
         <div class="modal-content">
@@ -132,21 +132,63 @@ TELA DE MODAL DE CADASTRO DE Categoria
                 <div class="modal-header" style="background-color:#3c8dbc; color:white; ">
 
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Cadastro de Categorias</h4>
+                    <h4 class="modal-title">Cadastro de Clientes</h4>
 
                 </div>
 
                 <div class="modal-body">
 
                     <div class="box-body">
-                        <div class="form-group">
 
+                        <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-                                <input id="novaCategoria" type="text" class="form-control input-lg" name="novaCategoria" placeholder="Informe a Categoria" required>
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input id="novoCliente" type="text" class="form-control input-lg" name="novoCliente" placeholder="Digite o nome do Cliente" required>
                             </div>
                         </div>
                        
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                <input id="novoDocumento" type="text" class="form-control input-lg" name="novoDocumento" placeholder="Digite o número do CPF" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input id="novoEmail" type="email" class="form-control input-lg" name="novoEmail" placeholder="Digite o E-mail" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span>
+                                <input id="novoCelular" type="text" class="form-control input-lg" name="novoCelular" placeholder="Digite o número do celular" data-inputmask="'mask':'(99) 99999-9999'" data-mask required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                <input id="novoTelefone" type="text" class="form-control input-lg" name="novoTelefone" placeholder="Digite o número do telefone" data-inputmask="'mask':'(99) 9999-9999'" data-mask required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                                <input id="novoLogradouro" type="text" class="form-control input-lg" name="novoLogradouro" placeholder="Digite o endereço" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <input id="novaDataNascimento" type="text" class="form-control input-lg" name="novaDataNascimento" placeholder="Digite a data de nascimento" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask  required>
+                            </div>
+                        </div>    
+
                     </div>
                 </div>
 
@@ -159,8 +201,8 @@ TELA DE MODAL DE CADASTRO DE Categoria
 
                     <?php 
 
-                        $adicionarCategoria = new ControllerCategorias();
-                        $adicionarCategoria -> ctrAdicionarCategoria();
+                        $adicionarCliente = new ControllerClientes();
+                        $adicionarCliente -> ctrAdicionarCliente();
 
                     ?>
 
