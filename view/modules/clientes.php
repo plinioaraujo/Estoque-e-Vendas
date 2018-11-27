@@ -35,81 +35,64 @@
                             <th>telefone</th>
                             <th>logradouro</th>
                             <th>data de nascimento</th>
-                            <th>compras</th>
+                            <th>Total de Compras</th>
+                            <th>Última compra</th>
                             <th>adicionado</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Joao da Silva</td>
-                            <td>021.456.215-41</td>
-                            <td>joao@gmail.com</td>
-                            <td>(21)98855-4434</td>
-                            <td>(21)3425-8254</td>
-                            <td>Rua da Batata,345 / 101</td>
-                            <td>1980-11-10</td>
-                            <td>0</td>
-                            <td>2018-11-15 17:52:41</td>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-warning btn-xs">
-                                        <i class="fa fa-pencil"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-xs">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
+                       <?php 
 
-                         <tr>
-                            <td>1</td>
-                            <td>Joao da Silva</td>
-                            <td>021.456.215-41</td>
-                            <td>joao@gmail.com</td>
-                            <td>(21)98855-4434</td>
-                            <td>(21)3425-8254</td>
-                            <td>Rua da Batata,345 / 101</td>
-                            <td>1980-11-10</td>
-                            <td>0</td>
-                            <td>2018-11-15 17:52:41</td>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-warning btn-xs">
-                                        <i class="fa fa-pencil"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-xs">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
+                       $item = null;
+                       $value = null;
 
-                         <tr>
-                            <td>1</td>
-                            <td>Joao da Silva</td>
-                            <td>021.456.215-41</td>
-                            <td>joao@gmail.com</td>
-                            <td>(21)98855-4434</td>
-                            <td>(21)3425-8254</td>
-                            <td>Rua da Batata,345 / 101</td>
-                            <td>1980-11-10</td>
-                            <td>0</td>
-                            <td>2018-11-15 17:52:41</td>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-warning btn-xs">
-                                        <i class="fa fa-pencil"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-xs">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
+                        $clientes = ControllerClientes::ctrListarClientes($item,$value);
 
+                        foreach ($clientes as $key => $value) {
+                            
+                            echo '<tr>
+
+                            <td>'.($key+1).'</td>
+        
+                            <td>'.$value["nome"].'</td>
+        
+                            <td>'.$value["cpf"].'</td>
+        
+                            <td>'.$value["email"].'</td>
+        
+                            <td>'.$value["celular"].'</td>
+
+                            <td>'.$value["telefone"].'</td>
+        
+                            <td>'.$value["logradouro"].'</td>
+        
+                            <td>'.$value["data_nascimento"].'</td>             
+        
+                            <td>'.$value["compras"].'</td>
+        
+                            <td>0000-00-00 00:00:00</td>
+        
+                            <td>'.$value["data_criacao"].'</td>
+        
+                            <td>
+        
+                              <div class="btn-group">
+                                  
+                                <button class="btn btn-warning btn-xs btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
+        
+                                <button class="btn btn-danger btn-xs btnEliminarCliente" idCliente="'.$value["id"].'"><i class="fa fa-times"></i></button>
+        
+                              </div>  
+        
+                            </td>
+        
+                          </tr>';
+
+                        }
+                       
+                       ?>
+                        
                     </tbody>
                 </table>
 
