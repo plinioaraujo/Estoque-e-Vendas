@@ -19,6 +19,8 @@ class ClientesModel{
 		$stmt->bindParam(":celular", $dados["celular"], PDO::PARAM_STR);
 		$stmt->bindParam(":logradouro", $dados["logradouro"], PDO::PARAM_STR);
 		$stmt->bindParam(":data_nascimento", $dados["data_nascimento"], PDO::PARAM_STR);
+		var_dump($stmt);
+		//var_dump($dados);
 
 		if($stmt->execute()){
 

@@ -143,49 +143,49 @@ TELA DE MODAL DE CADASTRO DE Clientes
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input id="novoCliente" type="text" class="form-control input-lg" name="novoCliente" placeholder="Digite o nome do Cliente" required>
+                                <input type="text" class="form-control input-lg" name="novoCliente" placeholder="Digite o nome do Cliente" required>
                             </div>
                         </div>
                        
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                <input id="novoDocumento" type="text" class="form-control input-lg" name="novoDocumento" placeholder="Digite o número do CPF" required>
+                                <input type="number" min="0" class="form-control input-lg" name="novoDocumento" placeholder="Digite o número do CPF" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                <input id="novoEmail" type="email" class="form-control input-lg" name="novoEmail" placeholder="Digite o E-mail" required>
+                                <input type="email" class="form-control input-lg" name="novoEmail" placeholder="Digite o E-mail" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span>
-                                <input id="novoCelular" type="text" class="form-control input-lg" name="novoCelular" placeholder="Digite o número do celular" data-inputmask="'mask':'(99) 99999-9999'" data-mask required>
+                                <input type="text" class="form-control input-lg" name="novoCelular" placeholder="Digite o número do celular" data-inputmask="'mask':'(99)99999-9999'" data-mask required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                <input id="novoTelefone" type="text" class="form-control input-lg" name="novoTelefone" placeholder="Digite o número do telefone" data-inputmask="'mask':'(99) 9999-9999'" data-mask required>
+                                <input type="text" class="form-control input-lg" name="novoTelefone" placeholder="Digite o número do telefone" data-inputmask="'mask':'(99)9999-9999'" data-mask required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                                <input id="novoLogradouro" type="text" class="form-control input-lg" name="novoLogradouro" placeholder="Digite o endereço" required>
+                                <input type="text" class="form-control input-lg" name="novoLogradouro" placeholder="Digite o endereço" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                <input id="novaDataNascimento" type="text" class="form-control input-lg" name="novaDataNascimento" placeholder="Digite a data de nascimento" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask  required>
+                                <input type="text" class="form-control input-lg" name="novaDataNascimento" placeholder="Digite a data de nascimento" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask  required>
                             </div>
                         </div>    
 

@@ -15,10 +15,7 @@ class ControllerClientes{
                     preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST["novoEmail"]) && 
                     preg_match('/^[()\-0-9 ]+$/', $_POST["novoTelefone"]) && 
                     preg_match('/^[()\-0-9 ]+$/', $_POST["novoCelular"]) && 
-                    preg_match('/^[,\.\-a-zA-Z0-9 ]+$/', $_POST["novoLogradouro"]
-                    
-                    )
-                 ){
+                    preg_match('/^[#\.\-a-zA-Z0-9 ]+$/', $_POST["novoLogradouro"]) ){
 
                   //  $telefone = preg_replace('/[^0-9]/', '', $_POST["novoTelefone"]);
                   //  $celular = preg_replace('/[^0-9]/', '', $_POST["novoCelular"]);
@@ -36,10 +33,10 @@ class ControllerClientes{
                                   "logradouro"=>$_POST["novoLogradouro"],
                                   "data_nascimento"=>$_POST["novaDataNascimento"]);
 
-                                  var_dump($dados);
+                                 // var_dump($dados);
                      
                       $resposta = ClientesModel::mdlAdicionarCliente($tabela, $dados);
-                        var_dump($resposta);
+                       
                       if($resposta == "ok"){
    
                        echo'<script>
