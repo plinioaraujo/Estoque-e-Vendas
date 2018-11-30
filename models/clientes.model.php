@@ -19,7 +19,7 @@ class ClientesModel{
 		$stmt->bindParam(":celular", $dados["celular"], PDO::PARAM_STR);
 		$stmt->bindParam(":logradouro", $dados["logradouro"], PDO::PARAM_STR);
 		$stmt->bindParam(":data_nascimento", $dados["data_nascimento"], PDO::PARAM_STR);
-		var_dump($stmt);
+		//var_dump($stmt);
 		//var_dump($dados);
 
 		if($stmt->execute()){
@@ -69,4 +69,65 @@ class ClientesModel{
 		$stmt = null;
 
 	}
+
+
+	/*=============================================
+	EDITAR CLIENTE
+	=============================================*/
+
+	static public function mdlEditarCliente($tabela, $dados){
+
+		$stmt = Connection::conectar()->prepare("UPDATE $tabela SET nome = :nome, cpf = :cpf, email = :email, telefone = :telefone, celular = :celular, logradouro = :logradouro, data_nascimento = :data_nascimento WHERE id = :id");
+
+		$stmt->bindParam(":id", $dados["id"], PDO::PARAM_INT);
+		$stmt->bindParam(":nome", $dados["nome"], PDO::PARAM_STR);
+		$stmt->bindParam(":cpf", $dados["cpf"], PDO::PARAM_INT);
+		$stmt->bindParam(":email", $dados["email"], PDO::PARAM_STR);
+		$stmt->bindParam(":telefone", $dados["telefone"], PDO::PARAM_STR);
+		$stmt->bindParam(":celular", $dados["celular"], PDO::PARAM_STR);
+		$stmt->bindParam(":logradouro", $dados["logradouro"], PDO::PARAM_STR);
+		$stmt->bindParam(":data_nascimento", $dados["data_nascimento"], PDO::PARAM_STR);
+
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt->close();
+		$stmt = null;
+
+	}
+
+
+	/*=============================================
+	Excluir CLIENTE
+	=============================================*/
+
+	static public function mdlExcluirCliente($tabela, $dados){
+
+		$stmt = Connection::conectar()->prepare("DELETE FROM $tabela WHERE id = :id");
+
+		$stmt -> bindParam(":id", $dados, PDO::PARAM_INT);
+
+		if($stmt -> execute()){
+
+			return "ok";
+		
+		}else{
+
+			return "error";	
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
 }

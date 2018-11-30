@@ -46,8 +46,8 @@
     <link rel="stylesheet" href="view/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="view/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
 
-     <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="view/plugins/iCheck/all.css">
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="view/plugins/iCheck/all.css">
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -74,19 +74,19 @@
     <script src="view/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script src="view/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
     <script src="view/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
-      <!-- SweetAlert 2 -->
+
+    <!-- SweetAlert 2 -->
     <script src="view/plugins/sweetalert2/sweetalert2.all.js"></script>
     <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
-      <!-- iCheck 1.0.1 -->
+    <!-- iCheck 1.0.1 -->
     <script src="view/plugins/iCheck/icheck.min.js"></script>
 
-        
     <!-- InputMask -->
-    <script src="view/plugins/input-mask/jquery.inputmask.js"></script>
-    <script src="view/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-    <script src="view/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+  <script src="view/plugins/input-mask/jquery.inputmask.js"></script>
+  <script src="view/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+  <script src="view/plugins/input-mask/jquery.inputmask.extensions.js"></script>
 
 
 </head>
@@ -122,6 +122,7 @@ if(
     $_GET["rota"] == "produtos" ||
     $_GET["rota"] == "clientes" ||
     $_GET["rota"] == "vendas" ||
+    $_GET["rota"] == "criar-venda" ||
     $_GET["rota"] == "cadastrarVendas" ||
     $_GET["rota"] == "relatorios" ||
     $_GET["rota"] == "sair" ){
@@ -150,6 +151,7 @@ if(
     <script src="view/js/usuarios.js"></script>
     <script src="view/js/categorias.js"></script>
     <script src="view/js/produtos.js"></script>
+    <script src="view/js/clientes.js"></script>
 
 </body>
 
