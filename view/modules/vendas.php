@@ -16,7 +16,7 @@
         <div class="box">
             <div class="box-header with-border">
 
-                    <a href="criar-venda">
+                    <a href="cadastrar-venda">
                     <button class="btn btn-primary" >
                         Adicionar Venda
 

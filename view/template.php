@@ -122,8 +122,7 @@ if(
     $_GET["rota"] == "produtos" ||
     $_GET["rota"] == "clientes" ||
     $_GET["rota"] == "vendas" ||
-    $_GET["rota"] == "criar-venda" ||
-    $_GET["rota"] == "cadastrarVendas" ||
+    $_GET["rota"] == "cadastrar-venda" ||
     $_GET["rota"] == "relatorios" ||
     $_GET["rota"] == "sair" ){
     

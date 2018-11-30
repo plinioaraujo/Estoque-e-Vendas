@@ -55,7 +55,7 @@
                </a>
                </li>
                <li>
-               <a href="cadastrarVendas">
+               <a href="cadastrar-venda">
                    
                    <i class="fa fa-circle-o"></i>
                    <span>Cadastrar nova venda</span>
