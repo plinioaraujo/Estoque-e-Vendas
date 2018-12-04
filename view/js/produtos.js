@@ -32,7 +32,7 @@ SCRIPT PARA CARREGAMENTO DE DADOS DINAMICO
 			"oPaginate": {
 			"sFirst":    "Primeiro",
 			"sLast":     "Último",
-			"sNext":     "Seguinte",
+			"sNext":     "Próximo",
 			"sPrevious": "Anterior"
 			},
 			"oAria": {
@@ -88,7 +88,8 @@ $("#novoPrecoCompra, #editarPrecoCompra").change(function(){
 			var valorPorcentagem = $(".novaPorcentagem").val();
 			
 			var porcentagem = Number(($("#novoPrecoCompra").val()*valorPorcentagem/100))+Number($("#novoPrecoCompra").val());
-	
+			
+
 			var editarPorcentagem = Number(($("#editarPrecoCompra").val()*valorPorcentagem/100))+Number($("#editarPrecoCompra").val());
 	
 			$("#novoPrecoVenda").val(porcentagem);

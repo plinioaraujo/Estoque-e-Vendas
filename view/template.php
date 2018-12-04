@@ -151,6 +151,7 @@ if(
     <script src="view/js/categorias.js"></script>
     <script src="view/js/produtos.js"></script>
     <script src="view/js/clientes.js"></script>
+    <script src="view/js/vendas.js"></script>
 
 </body>
 

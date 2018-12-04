@@ -6,9 +6,6 @@ require_once "../models/produtos.model.php";
 class AjaxProdutos{
 
 
-
-
-
 	/*==================================
 		GERAR CODIGO A PARTIR DO ID CATEGORIA
 	===================================*/
@@ -23,14 +20,36 @@ class AjaxProdutos{
 		echo json_encode($resposta);
 	}
 
-	
+	  
 /*=============================================
   EDITAR PRODUTO
   =============================================*/ 
 
   public $idProduto;
+  public $todosProdutos;
+  public $nomeProduto;
 
   public function ajaxEditarProduto(){
+
+	if ($this->todosProdutos == "ok") {
+		
+	$item = null;
+    $valor = null;
+
+	$resposta = ControllerProdutos::ctrListarProdutos($item, $valor);
+	
+    echo json_encode($resposta);
+
+	}else if ($this->nomeProduto != ""){
+
+		$item = "descricao";
+		$valor = $this->nomeProduto;
+	
+		$resposta = ControllerProdutos::ctrListarProdutos($item, $valor);
+		
+		echo json_encode($resposta);
+
+	}else  {
 
     $item = "id";
     $valor = $this->idProduto;
@@ -38,7 +57,7 @@ class AjaxProdutos{
     $resposta = ControllerProdutos::ctrListarProdutos($item, $valor);
 	
     echo json_encode($resposta);
-
+	}
   }
 
 }
@@ -59,6 +78,30 @@ if(isset($_POST["idProduto"])){
 	$editarProduto = new AjaxProdutos();
 	$editarProduto -> idProduto = $_POST["idProduto"];
 	$editarProduto -> ajaxEditarProduto();
+  
+  }
+
+  /*=============================================
+TODOS OS PRODUTOS
+=============================================*/ 
+
+if(isset($_POST["todosProdutos"])){
+
+	$todosProdutos = new AjaxProdutos();
+	$todosProdutos -> todosProdutos = $_POST["todosProdutos"];
+	$todosProdutos -> ajaxEditarProduto();
+  
+  }
+  
+   /*=============================================
+TODOS OS PRODUTOS
+=============================================*/ 
+
+if(isset($_POST["nomeProduto"])){
+
+	$nomeProduto = new AjaxProdutos();
+	$nomeProduto -> nomeProduto = $_POST["nomeProduto"];
+	$nomeProduto -> ajaxEditarProduto();
   
   }
   

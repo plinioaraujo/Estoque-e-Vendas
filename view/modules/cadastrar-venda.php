@@ -16,128 +16,161 @@
             <div class="col-lg-5 col-xs-12">
                 <div class="box box-success">
                 <div class="box-header with-border"></div>
-                <form role="form" method="post">
-                <div class="box-body">
+                <form role="form" method="post" class="formVenda">
+             
+ <div class="box-body">
                  
-                     <div class="box">
-                        <!--=====================================
-                           ENTRADA DO VENDEDOR 
-                           ======================================-->
-                        <div class="form-group">
-                           <div class="input-group">
-                              <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                              <input type="text" class="form-control" id="novoVendedor" name="novaVenda" value="Usuário Administrador" readonly>
-                           </div>
-                        </div>
-                        <!--=====================================
-                           Código da Venda
-                           ======================================-->
-                        <div class="form-group">
-                           <div class="input-group">
-                              <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                              <input type="text" class="form-control" id="novaVenda" name="novaVenda" value="123345">
-                           </div>
-                        </div>
-                        <!--=====================================
-                           Entrada do Cliente
-                           ======================================-->
-                        <div class="form-group">
-                           <div class="input-group">
-                              <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                              <select class="form-control" id="seleccionarCliente" name="seleccionarCliente" required>
-                                 <option value="">Selecionar cliente</option>
-                              </select>
-                              <span class="input-group-addon"><button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modalCadastroCliente" data-dismiss="modal">Adicionar cliente</button></span>
-                           </div>
-                        </div>
-                        <!--=====================================
-                           ENTRADA PARA ADICIONAR PRODUTO
-                           ======================================--> 
-                        <div class="form-group row novoProduto">
-                           <!-- Descrição do produto -->
-                           <div class="col-xs-6" style="padding-right:0px">
-                              <div class="input-group">
-                                 <span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button></span>
-                                 <input type="text" class="form-control" id="adicionarProduto" name="adicionarProduto" placeholder="Descrição do produto" required>
-                              </div>
-                           </div>
-                           <!-- Quantidade do Produto -->
-                           <div class="col-xs-3">
-                              <input type="number" class="form-control" id="novaQuantidadeProduto" name="novaQuantidadeProduto" min="1" placeholder="0" required>
-                           </div>
-                           <!-- Preço do produto -->
-                           <div class="col-xs-3" style="padding-left:0px">
-                              <div class="input-group">
-                                 <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
-                                 <input type="number" min="1" class="form-control" id="novoPrecoProduto" name="novoPrecoProduto" placeholder="000000" readonly required>
-                              </div>
-                           </div>
-                        </div>
-                        <!--=====================================
-                           BOTÃO PARA ADICIONAR PRODUTO
-                           ======================================-->
-                        <button type="button" class="btn btn-default hidden-lg">Adicionar produto</button>
-                        <hr>
-                    <div class="row">
-                           <!--=====================================
-                              ENTRADA IMPOSTOS E TOTAL
-                              ======================================-->
-                           <div class="col-xs-8 pull-right">
-                              <table class="table">
-                                 <thead>
-                                    <tr>
-                                       <th>Imposto</th>
-                                       <th>Total</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    <tr>
-                                       <td style="width: 50%">
-                                          <div class="input-group">
-                                             <input type="number" class="form-control" min="0" id="novoImpostoVenda" name="novoImpostoVenda" placeholder="0" required>
-                                             <span class="input-group-addon"><i class="fa fa-percent"></i></span>
-                                          </div>
-                                       </td>
-                                       <td style="width: 50%">
-                                          <div class="input-group">
-                                             <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
-                                             <input type="number" min="1" class="form-control" id="novoTotalVenda" name="novoTotalVenda" placeholder="00000" readonly required>
-                                          </div>
-                                       </td>
-                                    </tr>
-                                 </tbody>
-                              </table>
-                           </div>
-                        </div>
-                        <hr>
-                        <!--=====================================
-                           ENTRADA MÉTODO DE PAGAMENTO
-                           ======================================-->
-                        <div class="form-group row">
-                           <div class="col-xs-6" style="padding-right:0px">
-                              <div class="input-group">
-                                 <select class="form-control" id="novoMetodoPagamento" name="novoMetodoPagamento" required>
-                                    <option value="">Selecione o método de pagamento</option>
-                                    <option value="aVista">À vista</option>
-                                    <option value="cartaoCredito">Cartão de Crédito</option>
-                                    <option value="cartaoDebito">Cartão de Débito</option>
-                                 </select>
-                              </div>
-                           </div>
-                           <div class="caixasMetodoPagamento"></div>
+                        <div class="box">
+                                <!--=====================================
+                                ENTRADA DO VENDEDOR 
+                                ======================================-->
+                                <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input type="text" class="form-control" id="novoVendedor" name="novaVenda" value="<?php echo $_SESSION["nome"]  ?>" readonly>
 
-                                <input type="hidden" id="listaMetodoPagamento" name="listaMetodoPagamento">
+                                    <input type="hidden" name="<?php echo $_SESSION["id"]  ?>">
+                                </div>
+                                </div>
+                                <!--=====================================
+                                Código da Venda
+                                ======================================-->
+                                <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                    
+                                    <?php 
+                                        $item = null;
+                                        $valor = null;
 
-                            </div>
+                                        $vendas = ControllerVendas::ctrListarVendas($item,$valor);
 
-                                <br>
+                                        if (!$vendas) {
+                                            echo '<input type="text" class="form-control" id="novaVenda" name="novaVenda" value="10001">';
+
+                                        } else {
+                                            foreach ($vendas as $key => $value) {
+                                                # code...
+                                            }
+
+                                            $codigo = $value["codigo"] + 1;
+                                            
+                                            echo '<input type="text" class="form-control" id="novaVenda" name="novaVenda" value="'.$codigo.'">';
+
+                                        }
+                                            
+
+                                    ?>
+                                    
+                                    
+                                    
+                                </div>
+                                </div>
+
+
+                                <!--=====================================
+                                Entrada do Cliente
+                                ======================================-->
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                                        <select class="form-control" id="seleccionarCliente" name="seleccionarCliente" required>
+
+                                            <option value="">Selecionar cliente</option>
+
+                                            <?php 
+                                            
+                                            $item = null;
+                                            $valor = null;
+
+                                            $clientes = ControllerClientes::ctrListarClientes($item,$valor);
+                                              foreach ($clientes as $key => $value) {
+                                                  
+                                                echo '<option value="'.$value["id"].'">'.$value["nome"].'</option>';
+                                              }      
+                                            
+                                            ?>
+                                        
+                                        </select>
+
+                                        <span class="input-group-addon"><button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modalCadastroCliente" data-dismiss="modal">Adicionar cliente</button></span>
+                                    </div>
+                                </div>
+
+                                <!--=====================================
+                                ENTRADA PARA ADICIONAR PRODUTO
+                                ======================================--> 
+                                <div class="form-group row novoProduto">
+                               
+                                            
+                                </div>
+                                <!--=====================================
+                                BOTÃO PARA ADICIONAR PRODUTO
+                                ======================================-->
+                                <button type="button" class="btn btn-default hidden-lg btnAdicionarProduto">Adicionar produto</button>
+                                <hr>
+                            <div class="row">
+                                <!--=====================================
+                                    ENTRADA IMPOSTOS E TOTAL
+                                    ======================================-->
+                                <div class="col-xs-8 pull-right">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                            <th>Imposto</th>
+                                            <th>Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                            <td style="width: 50%">
+                                                <div class="input-group">
+                                                    <input type="number" class="form-control" min="0" id="novoImpostoVenda" name="novoImpostoVenda" placeholder="0" required>
+                                                    <span class="input-group-addon"><i class="fa fa-percent"></i></span>
+                                                </div>
+                                            </td>
+                                            <td style="width: 50%">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
+                                                    <input type="number" min="1" class="form-control" id="novoTotalVenda" name="novoTotalVenda" placeholder="00000" readonly required>
+                                                </div>
+                                            </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                </div>
+                                <hr>
+                                <!--=====================================
+                                ENTRADA MÉTODO DE PAGAMENTO
+                                ======================================-->
+                                <div class="form-group row">
+                                <div class="col-xs-6" style="padding-right:0px">
+                                    <div class="input-group">
+                                        <select class="form-control" id="novoMetodoPagamento" name="novoMetodoPagamento" required>
+                                            <option value="">Selecione o método de pagamento</option>
+                                            <option value="aVista">À vista</option>
+                                            <option value="cartaoCredito">Cartão de Crédito</option>
+                                            <option value="cartaoDebito">Cartão de Débito</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="caixasMetodoPagamento"></div>
+
+                                        <input type="hidden" id="listaMetodoPagamento" name="listaMetodoPagamento">
 
                                 </div>
 
-                            </div>
-                            <div class="box-footer">
-                            <button type="submit" class="btn btn-primary pull-right">Gravar venda</button>
-                        </div>
+                      </div>
+
+                                    </div>
+                                    <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary pull-right">Gravar venda</button>
+                                </div>
+
+
+
+                    
                   </form>
                 
                </div>
@@ -150,7 +183,7 @@
                     <div class="box box-warning">
                         <div class="box-header with-border"></div>
                         <div class="box-body">
-                            <table class="table table-bordered table-striped dt-responsive tabelas">
+                            <table class="table table-bordered table-striped dt-responsive tabelaVendas">
                                 <thead>
                                     <tr>
                                         <th style="width: 10px">#</th>
@@ -161,28 +194,17 @@
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1.</td>
-                                        <td><img src="view/img/produtos/default/anonymous.png" class="img-thumbnail" width="40px"></td>
-                                        <td>00123</td>
-                                        <td>Lorem ipsum dolor sit amet</td>
-                                        <td>20</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-primary">Adicionar</button> 
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                
                             </table>
                         </div>
                     </div>
                 </div>
         </div>
-         
+        
     </section>
 </div>
+
+
 <!--======================================
    TELA DE MODAL DE CADASTRO DE Clientes
    ======================================-->

@@ -20,7 +20,7 @@
 
                 </button>
             </div>
-
+           
             <div class="box-body">
 
                 <table class="table table-bordered table-striped table-hover dt-responsive tabelaProdutos" width="100%">
@@ -127,7 +127,7 @@ TELA DE MODAL DE CADASTRO DE PRODUTO
 
                                 <input type="number" class="form-control input-lg" id="novoPrecoCompra" name="novoPrecoCompra" min="0" step="any" placeholder="Preço de Compra" required
                                 >
-                              
+                            
                               </div>
 
                             </div>
