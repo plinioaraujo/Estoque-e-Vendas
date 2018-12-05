@@ -91,30 +91,39 @@ $(".tabelaVendas tbody").on("click", "button.adicionarProduto", function(){
 
 					'<div class="row" style="padding:5px 15px">'+ 
 										
-					'<!-- Descrição do produto -->'+
-					'<div class="col-xs-6" style="padding-right:0px">'+
-						'<div class="input-group">'+
-							'<span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs excluirProduto" idProduto="'+ idProduto + '"><i class="fa fa-times"></i></button></span>'+
-							'<input type="text" class="form-control adicionarProduto" name="adicionarProduto" value="'+ descricao +'" readonly>'+
-						'</div>'+
-					'</div> '+
+						'<!-- Descrição do produto -->'+
+						'<div class="col-xs-6" style="padding-right:0px">'+
+							'<div class="input-group">'+
+								'<span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs excluirProduto" idProduto="'+ idProduto + '"><i class="fa fa-times"></i></button></span>'+
+								'<input type="text" class="form-control adicionarProduto" name="adicionarProduto" value="'+ descricao +'" readonly>'+
+							'</div>'+
+						'</div> '+
 
-					'<!-- Quantidade do Produto -->'+
-					'<div class="col-xs-3">'+
-						'<input type="number" class="form-control novaQuantidadeProduto" name="novaQuantidadeProduto" value="1" estoque="'+ estoque + '" min="1" placeholder="0" required>'+
-					'</div>'+
-
-					'<!-- Preço do produto -->'+
-					'<div class="col-xs-3" style="padding-left:0px">'+
-						'<div class="input-group">'+
-							'<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>'+
-							'<input type="number" min="1" class="form-control novoPrecoProduto"  name="novoPrecoProduto" value="' + preco + '" readonly>'+
+						'<!-- Quantidade do Produto -->'+
+						'<div class="col-xs-3">'+
+							'<input type="number" class="form-control novaQuantidadeProduto" name="novaQuantidadeProduto" value="1" estoque="'+ estoque + '" min="1" placeholder="0" required>'+
 						'</div>'+
-					'</div>'+ 
-					'</div>'+ 
-				'</div>'
+
+						'<!-- Preço do produto -->'+
+						'<div class="col-xs-3 entradaPreco" style="padding-left:0px">'+
+							'<div class="input-group">'+
+								'<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>'+
+								'<input type="text" class="form-control novoPrecoProduto" precoReal="' + preco + '" name="novoPrecoProduto" value="' + preco + '" readonly data-thousands="." data-decimal="," data-prefix="R$ " >'+
+							'</div>'+
+						'</div>'+ 
+					'</div>'
 					
 				)
+				
+				//SOMA O TOTAL DE PRECOS NA VENDA
+				somarTotalPrecos();
+
+				//adicionar imposto
+				adicionarImposto();
+
+				//FORMATAR O PREÇO DOS PRODUTOS
+				$(".novoPrecoProduto").maskMoney();
+
 
 			}
 
@@ -123,7 +132,7 @@ $(".tabelaVendas tbody").on("click", "button.adicionarProduto", function(){
 });
 
 /*=============================================
-QUANDO CARREGUE A TABELA DE PRODUTOS EM VENDAS A CADA NAVEGAÇÃO 
+QUANDO CARREGA A TABELA A CADA NAVEGAÇÃO
 =============================================*/
 
 
@@ -176,8 +185,20 @@ $(".formVenda").on("click", "button.excluirProduto", function(){
 	$("button.recuperarBotao[idProduto='" + idProduto +"']").removeClass("btn-default");
 	$("button.recuperarBotao[idProduto='" + idProduto +"']").addClass("btn-primary adicionarProduto");
 
+	if($(".novoProduto").children().length == 0){
 
+		
+		$("#novoImpostoVenda").val(0);	
+		$("#novoTotalVenda").val(0);	
+		$("#novoTotalVenda").attr("total",0);
+	}else{
 
+		//SOMA O TOTAL DE PRECOS NA VENDA
+		somarTotalPrecos();
+
+		//adicionar imposto
+				adicionarImposto();
+	}
 });
 
 
@@ -209,7 +230,7 @@ $(".btnAdicionarProduto").click(function(){
 			
 			$(".novoProduto").append(
 
-				'<div class="row" style="padding:5px 15px">'+ 
+				'<div class="row descr" style="padding:5px 15px">'+ 
 									
 				'<!-- Descrição do produto -->'+
 				'<div class="col-xs-6" style="padding-right:0px">'+
@@ -234,7 +255,7 @@ $(".btnAdicionarProduto").click(function(){
 				'<div class="col-xs-3 entradaPreco" style="padding-left:0px">'+
 					'<div class="input-group">'+
 						'<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>'+
-						'<input type="number" min="1" class="form-control novoPrecoProduto"  name="novoPrecoProduto" value readonly>'+
+						'<input type="number" min="1" class="form-control novoPrecoProduto"  precoReal="' + preco + '" name="novoPrecoProduto" readonly>'+
 					'</div>'+
 				'</div>'+ 
 				'</div>'+ 
@@ -252,6 +273,12 @@ $(".btnAdicionarProduto").click(function(){
 						'<option idProduto="' + item.id + '" value="'+item.descricao+'">'+ item.descricao+'</option>'
 					)
 				}	
+
+				//SOMA O TOTAL DE PRECOS NA VENDA
+				somarTotalPrecos();
+
+				//adicionar imposto
+				adicionarImposto();
 			}	
 
 		}
@@ -294,7 +321,7 @@ $(".formVenda").on("change", "select.novaDescricaoProduto", function(){
 
 		
 			$(novaDescricaoProduto).attr("idProduto", resposta["id"]);
-      	    $(novaQuantidadeProduto).attr("stock", resposta["stock"]);
+      	    $(novaQuantidadeProduto).attr("estoque", resposta["estoque"]);
       	    $(novaQuantidadeProduto).attr("estoque", Number(resposta["estoque"])-1);
       	    $(novoPrecoProduto).val(resposta["preco_venda"]);
       	    $(novoPrecoProduto).attr("precoReal", resposta["preco_venda"]);
@@ -306,14 +333,139 @@ $(".formVenda").on("change", "select.novaDescricaoProduto", function(){
 
 })
 
+/*=============================================
+=   ALTERAR A QUANTIDADE DE PRODUTO        =
+=============================================*/
+
+
+$(".formVenda").on("change", "input.novaQuantidadeProduto", function(){
+
+	var preco = $(this).parent().parent().children('.entradaPreco').children().children('.novoPrecoProduto');
+
+	var precoFinal = $(this).val() * preco.attr("precoReal");
+
+	preco.val(precoFinal);
+
+	var novoEstoque = Number($(this).attr("estoque") -$(this).val());
+
+	$(this).attr("novoEstoque", novoEstoque);
+	
+	if( Number($(this).val()) > Number($(this).attr("estoque"))){
+		//console.log("novoEstoque",novoEstoque);
+	
+
+		/*=============================================
+		SE A QUALNTIDADE É SUPERIOR AO ESTOQUE VOLTAR AOS VALORES INICIAIS
+		=============================================*/
+
+		$(this).val(1);
+
+		var precoFinal = $(this).val() * preco.attr("precoReal");
+
+		preco.val(precoFinal);
+
+		//SOMA O TOTAL DE PRECOS NA VENDA
+			somarTotalPrecos();
+
+
+			adicionarImposto();
+
+
+		swal({
+	      title: "A quantidade desejada para o produto não está disponíveil",
+	      text: "Há somente "+$(this).attr("estoque")+" unidades!",
+	      type: "error",
+	      confirmButtonText: "Fechar"
+	    });
+
+	    return;
+	}
+
+
+			//SOMA O TOTAL DE PRECOS NA VENDA
+			somarTotalPrecos();	
+
+			adicionarImposto();
+
+})
+
+/*=============================================
+=            SOMAR TODOS OS PREÇOS            =
+=============================================*/
+
+function somarTotalPrecos(){
+
+	var precoItem = $(".novoPrecoProduto");
+	var arraySomaPreco = [];
+
+	for (var i =0; i < precoItem.length;i++) {
+		
+		arraySomaPreco.push(Number($(precoItem[i]).val()));
+	}
+
+	//console.log("arraySomaPreco",arraySomaPreco);
+
+	function somarArrayPrecos(total,numero){
+
+		return total + numero;
+
+	}
+
+	var somaTotalPreco = arraySomaPreco.reduce(somarArrayPrecos);
+	
+	$("#novoTotalVenda").val(somaTotalPreco);
+
+}
+
+/*=====  End of SOMAR TODOS OS PREÇOS  ======*/
 
 
 
+/*================================================
+=            FUNÇÃO ADICIONAR IMPOSTO            =
+================================================*/
+
+function adicionarImposto(){
+	var imposto = $("#novoImpostoVenda").val();
+	var precoTotal = $("#novoTotalVenda").val();
+
+
+	var precoImposto = Number(precoTotal * imposto/100);
+
+	var totalComImposto = Number(precoImposto) + Number(precoTotal);
+
+	$("#novoTotalVenda").val(totalComImposto);
+
+	$("#novoPrecoImposto").val(precoImposto);
+
+	$("#totalAPagarSemImposto").val(precoTotal);
+
+
+}
+
+/*=====  End of FUNÇÃO ADICIONAR IMPOSTO  ======*/
+
+
+/*================================================
+=            QUANDO ALTERAR O IMPOSTO            =
+================================================*/
+
+$("#novoImpostoVenda").change(function(){
+
+	adicionarImposto();
+
+})
+
+
+/*=====  End of QUANDO ALTERAR O IMPOSTO  ======*/
+
+/*=====================================================
+=            FORMATAR VALOR TOTAL DA VENDA            =
+=====================================================*/
 
 
 
-
-
+/*=====  End of FORMATAR VALOR TOTAL DA VENDA  ======*/
 
 
 

@@ -87,6 +87,9 @@
   <script src="view/plugins/input-mask/jquery.inputmask.js"></script>
   <script src="view/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
   <script src="view/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+  
+
+  <script src="view/plugins/jquery-maskMoney/jquery.maskMoney.min.js"></script>
 
 
 </head>

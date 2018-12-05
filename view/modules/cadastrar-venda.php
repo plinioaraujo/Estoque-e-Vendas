@@ -125,14 +125,18 @@
                                             <tr>
                                             <td style="width: 50%">
                                                 <div class="input-group">
-                                                    <input type="number" class="form-control" min="0" id="novoImpostoVenda" name="novoImpostoVenda" placeholder="0" required>
+                                                    <input type="number" class="form-control input-lg" min="0" id="novoImpostoVenda" name="novoImpostoVenda" placeholder="0" required>
+                                                  
+                                                  <input type="hidden" id="novoPrecoImposto" name="novoPrecoImposto" required>
+                                                  <input type="hidden" id="totalAPagarSemImposto" name="totalAPagarSemImposto" required>
+
                                                     <span class="input-group-addon"><i class="fa fa-percent"></i></span>
                                                 </div>
                                             </td>
                                             <td style="width: 50%">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
-                                                    <input type="number" min="1" class="form-control" id="novoTotalVenda" name="novoTotalVenda" placeholder="00000" readonly required>
+                                                    <input type="number" min="1" class="form-control input-lg" id="novoTotalVenda" name="novoTotalVenda" placeholder="00000" readonly required>
                                                 </div>
                                             </td>
                                             </tr>
@@ -170,7 +174,7 @@
 
 
 
-                    
+
                   </form>
                 
                </div>
