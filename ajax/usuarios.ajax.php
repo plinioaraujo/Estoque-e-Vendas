@@ -1,5 +1,5 @@
 <?php
- 
+ //teste
 require_once "../controller/usuarios.controller.php";
 require_once "../models/usuarios.model.php";
 
@@ -67,7 +67,7 @@ class AjaxUsuarios{
  	}
     
 }
-    
+     
     /*=============================================
     EDITAR USUARIO
     =============================================*/

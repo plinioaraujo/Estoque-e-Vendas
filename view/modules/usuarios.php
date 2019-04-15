@@ -85,7 +85,7 @@
                                       <button class="btn btn-danger btnExcluirUsuario" idUsuario="'.$valor["id"].'" fotoUsuario="'.$valor["foto"].'" login="'.$valor["login"].'"><i class="fa fa-times"></i></button>
 
                     </div>  
-
+ 
                   </td>
                         </tr>';
                         }
