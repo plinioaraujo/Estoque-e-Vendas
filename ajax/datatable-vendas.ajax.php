@@ -2,7 +2,7 @@
 
 require_once "../controller/produtos.controller.php";
 require_once "../models/produtos.model.php";
-
+ 
 class TabelaProdutosVendas{
 
 /*/==================================================

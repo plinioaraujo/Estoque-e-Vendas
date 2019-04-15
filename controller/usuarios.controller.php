@@ -9,11 +9,11 @@ class ControllerUsuarios{
           
           
            if(preg_match('/^[a-zA-Z0-9]+$/',$_POST["inLogin"]) && 
-              preg_match('/^[a-zA-Z0-9]+$/',$_POST["inSenha"])){
+              preg_match('/^[a-zA-Z0-9]+$/',$_POST["senhaLogin"])){
           
                
-                $encriptar = crypt($_POST["inSenha"], '$2a$07$rasmuslerd$' );
-               
+                $encriptar = crypt($_POST["senhaLogin"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$' );
+               //var_dump($_POST["senhaLogin"]);
                $tabela = "usuarios";
                
                $item = "login";
@@ -167,7 +167,7 @@ class ControllerUsuarios{
                 $tabela = "usuarios";
                 
                 
-                $encriptar = crypt($_POST["inSenha"], '$2a$07$rasmuslerd$' );
+                $encriptar = crypt($_POST["inSenha"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$' );
                 
                $dados = array(
                    "nome" =>$_POST["inNome"],
@@ -177,7 +177,7 @@ class ControllerUsuarios{
                    "rota" => $rota);                
                    
                 $retorno = UsuariosModel::MdlAdicionarUsuario($tabela,$dados);
-                
+                var_dump($retorno);
                 if($retorno == "ok"){
                     
                        
@@ -354,7 +354,7 @@ class ControllerUsuarios{
 
 											if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["editarSenha"])){
 
-												$encriptar = crypt($_POST["editarSenha"], '$2a$07$rasmuslerd$');
+												$encriptar = crypt($_POST["editarSenha"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
 
 											}else{
 

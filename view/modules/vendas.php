@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-
+  
     <section class="content-header">
         <h1>
            Vendas
@@ -42,26 +42,54 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>3485748759</td>
-                            <td>Joao da Silva</td>
-                            <td>Carlos Silverio</td>
-                            <td>CC-1255740934578</td>
-                            <td>R$1.000,00</td>
-                            <td>R$1.190,00</td>
-                            <td>2018-11-15 17:52:41</td>
+
+                        <?php
+
+                            $item = null;
+                            $valor = null;
+                            $resposta = ControllerVendas::ctrListarVendas($item,$valor);
+
+                           //var_dump($resposta);
+
+                            foreach ($resposta as $key => $value) {
+                                
+                                echo ' <tr>
+                            <td>'.($key+1).'</td>
+                            <td>'.$value["codigo"].'</td>';
+
+                               $itemCliente = "id";
+                               $valorCliente = $value["id_cliente"];
+
+                               $respostaCliente = ControllerClientes::ctrListarClientes($itemCliente,$valorCliente); 
+
+                            echo '<td>'.$respostaCliente["nome"].'</td>';
+
+                               $itemUsuario = "id";
+                               $valorUsuario = $value["id_vendedor"];
+
+                               $respostaUsuario = ControllerUsuarios::ctrListarUsuarios($itemUsuario,$valorUsuario); 
+
+                            echo '<td>'.$respostaUsuario["nome"].'</td>';
+                            echo '
+                            <td>'.$value["metodo_pagamento"].'</td>
+                            <td>R$ '.number_format($value["valor"],2).'</td>
+                            <td>R$ '.number_format($value["valor_total"],2).'</td>
+                            <td>'.$value["data"].'</td>
                             <td>
+
                                 <div class="btn-group">
-                                    <button class="btn btn-info btn-xs">
-                                        <i class="fa fa-print"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-xs">
-                                        <i class="fa fa-times"></i>
-                                    </button>
+
+                                    <button class="btn btn-info btn-md"><i class="fa fa-print"></i></button>
+                                     <button class="btn btn-warning btn-md btnEditarVenda" idVenda="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-danger btn-md"><i class="fa fa-times"></i></button>
                                 </div>
                             </td>
-                        </tr>
+                        </tr>';
+                            }
+
+
+                         ?>
+                       
 
                     </tbody>
                 </table>

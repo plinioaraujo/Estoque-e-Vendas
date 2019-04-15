@@ -122,7 +122,7 @@ class UsuariosModel{
 
 
 	/*=============================================
-	BORRAR USUARIO
+	EXCLUIR USUARIO
 	=============================================*/
 
 	static public function mdlExcluirUsuario($tabela, $dados){

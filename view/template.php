@@ -21,7 +21,7 @@
     
                 PLUGLINS DE CSS
     
-        ==================================================-->
+    ==================================================-->
 
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="view/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -54,7 +54,7 @@
 
     <!--================================================ 
     
-                PLUGLINS DE JAVASCRIPT
+                PLUGLINS JAVASCRIPT
     
     ==================================================-->
 
@@ -89,7 +89,10 @@
   <script src="view/plugins/input-mask/jquery.inputmask.extensions.js"></script>
   
 
-  <script src="view/plugins/jquery-maskMoney/jquery.maskMoney.min.js"></script>
+ <!--  <script src="view/plugins/jquery-maskMoney/jquery.maskMoney.min.js"></script> -->
+  <script src="view/plugins/jquerynumber/jquerynumber.js"></script>
+  
+
 
 
 </head>
@@ -105,7 +108,7 @@
         
         echo '<div class="wrapper">';
   /*=============================================
-    CABEÇALHOE
+    CABEÇALHO
     =============================================*/
          
         include("modules/header.php");  
@@ -126,6 +129,7 @@ if(
     $_GET["rota"] == "clientes" ||
     $_GET["rota"] == "vendas" ||
     $_GET["rota"] == "cadastrar-venda" ||
+    $_GET["rota"] == "editar-venda" ||
     $_GET["rota"] == "relatorios" ||
     $_GET["rota"] == "sair" ){
     

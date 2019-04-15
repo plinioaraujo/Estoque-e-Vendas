@@ -123,11 +123,10 @@ INSERT INTO `produtos` (`id`, `id_categoria`, `descricao`, `codigo`, `imagem`, `
 DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
-  `nome` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `login` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `senha` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `perfil` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `foto` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `nome` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `login` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `senha` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `perfil` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `status` int(11) NOT NULL,
   `ultimo_login` datetime NOT NULL,
   `data_criacao` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP

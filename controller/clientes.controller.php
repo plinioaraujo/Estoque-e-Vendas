@@ -85,8 +85,11 @@ class ControllerClientes{
   LISTAR CLIENTES
   =============================================*/
   static public function ctrListarClientes($item, $valor){
+
     $tabela = "clientes";
+
     $resposta = ClientesModel::mdlListarClientes($tabela, $item, $valor);
+    
     return $resposta;
   }
      
